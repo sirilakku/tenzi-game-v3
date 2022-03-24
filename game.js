@@ -20,7 +20,7 @@ function welcome(req, res) {
   );
 }
 
-//function welcome
+// function welcome
 // (req, res) {
 //   res.sendFile(__dirname + '/index.html');
 // }
