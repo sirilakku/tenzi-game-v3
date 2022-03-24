@@ -4,6 +4,9 @@ let res = require("express/lib/response");
 const { welcome, displayName, playTenziFun, player } = require("./game");
 const { request } = require("express");
 const app = express();
+// app.use(express.static('public')); 
+// app.use('/images', express.static('images'));
+// app.use('', express.static('scripts'));
 
 let p1 = player.player1.name
 let p2 = player.player2.name 
@@ -16,7 +19,7 @@ app.get("/inputnames", (req, res) => {
   if (p1 && p2) {
     res.send(
       `${displayName(p1, p2)}. ${p1} is now Player1, ${
-        p2} is now Player2. Please see "http://localhost:4000/instructions"`
+        p2} is now Player2. Please click <a href = "http://localhost:4000/instructions">Instructions for the Game</a>`
     );
   } else if (
     p1 === undefined &&
@@ -35,7 +38,7 @@ app.get("/inputnames", (req, res) => {
 
 app.get("/instructions", (req, res) => {
   res.send(
-    `Please curl "http://localhost:4000/playgame" to continue playing this game.`
+    `Click <a href="http://localhost:4000/playgame">here</a> to continue playing this game.`
   );
 });
 
@@ -47,12 +50,12 @@ app.get("/playgame", (req, res) => {
     if (countPlayer1 < countPlayer2) {
       player.player1.score = player.player1.score + 1;
       res.send(
-        `Tenzi!!! ${p1} rolled ${countPlayer1} times and ${p2} rolled ${countPlayer2} times. To check the scores curl "http://localhost:4000/scores"`
+        `Tenzi!!! ${p1} rolled ${countPlayer1} times and ${p2} rolled ${countPlayer2} times. To check scores click <a href = "http://localhost:4000/scores">Scores</a>`
       );
     } else {
       player.player2.score = player.player2.score + 1;
       res.send(
-        `Tenzi!!! ${p1} rolled ${countPlayer1} times and ${p2} rolled ${countPlayer2} times.`
+        `Tenzi!!! ${p1} rolled ${countPlayer1} times and ${p2} rolled ${countPlayer2} times.To check scores click <a href = "http://localhost:4000/scores">Scores</a>`
       );
     }
   } else {
@@ -64,7 +67,7 @@ app.get("/playgame", (req, res) => {
 
 app.get("/scores", (req, res) => {
   res.send(
-    `Here are scores. ${p1} : ${player.player1.score} and ${p2} : ${player.player2.score}. To reset the game "http://localhost:4000/restart" or to play again "http://localhost:4000/playgame" `
+    `Here are scores. ${p1} : ${player.player1.score} and ${p2} : ${player.player2.score}. To <a href = "http://localhost:4000/restart"> Restart </a> or to <a href = "http://localhost:4000/playgame"> Play Again</a>`
   );
 });
 

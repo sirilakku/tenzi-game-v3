@@ -1,3 +1,4 @@
+
 const player = {
   player1: {
     name: "",
@@ -15,9 +16,14 @@ function displayName(player1, player2) {
 
 function welcome(req, res) {
   res.send(
-    `Welcome to Tenzi Game. Please enter your name using this command: curl "http://localhost:4000/inputnames?player1={yourName}&player2={yourname}"`
+    `Welcome to Tenzi Game. Please enter your name using this command:  "http://localhost:4000/inputnames?player1={yourName}&player2={yourname}"`
   );
 }
+
+//function welcome
+// (req, res) {
+//   res.sendFile(__dirname + '/index.html');
+// }
 
 function rollSetOfDice(times) {
   let diceArray = [];
