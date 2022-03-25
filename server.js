@@ -36,7 +36,7 @@ app.get("/inputnames", (req, res) => {
   } else if (p1 === "yourName" || p2 === "yourName") {
     res.send(
       `<h1 text-align:center><p text-align: center>No players found. Please pass player names using</h1><br> <h2>"http://localhost:4000/inputnames?player1={yourName}&player2={yourName}"</h2>`
-      ); 
+    );
   } else {
     res.send(
       `<h1 text-align:center><p text-align: center>No players found. Please pass player names using</h1><br> <h2>"http://localhost:4000/inputnames?player1={yourName}&player2={yourName}"</h2>`
@@ -59,14 +59,12 @@ app.get("/playgame", (req, res) => {
       res.send(
         `<h1 text-align:center><p text-align: center>Tenzi!!!</p></h1> <br><h2> ${p1} rolled ${countPlayer1} times and ${p2} rolled ${countPlayer2} times.</h2> <br> <h2>To check scores click <a href = "http://localhost:4000/scores">Scores</a></h2>`
       );
-    } else if (countPlayer1 === countPlayer2){
+    } else if (countPlayer1 === countPlayer2) {
       res.send(
         `<h1 text-align:center><p text-align: center>Tenzi!!!</p></h1> <br><h2> ${p1} rolled ${countPlayer1} times and ${p2} rolled ${countPlayer2} times.</h2> <br> <h2>To check scores click <a href = "http://localhost:4000/scores">Scores</a></h2>`
       );
-
     }
-  } 
-  
+  }
 });
 
 app.get("/scores", (req, res) => {

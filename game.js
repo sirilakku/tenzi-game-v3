@@ -1,4 +1,3 @@
-
 const player = {
   player1: {
     name: "",
@@ -18,7 +17,6 @@ function welcome(req, res) {
 function displayName(player1, player2) {
   return `<h1>Welcome to Tenzi game ${player1} and ${player2}</h1>`;
 }
-
 
 function rollSetOfDice(times) {
   let diceArray = [];
