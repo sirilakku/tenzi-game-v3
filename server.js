@@ -4,15 +4,17 @@ let res = require("express/lib/response");
 const { welcome, displayName, playTenziFun, player } = require("./game");
 const { request } = require("express");
 const app = express();
-//const element = Document.getElementById()
-// app.use(express.static('public'));
-// app.use('/images', express.static('images'));
-// app.use('', express.static('scripts'));
 
-let p1 = player.player1.name;
-let p2 = player.player2.name;
+ let p1 = player.player1.name;
+ let p2 = player.player2.name;
 
 app.get("/", welcome);
+
+app.get("/instructions", (req, res) => {
+  res.send(
+    `Click <a href="http://localhost:4000/playgame">here</a> to continue playing this game.`
+  );
+});
 
 app.get("/inputnames", (req, res) => {
   p1 = req.query.player1;
@@ -20,24 +22,25 @@ app.get("/inputnames", (req, res) => {
 
   if (p1 && p2) {
     res.send(
-      `${displayName(
-        p1,
+      `${displayName(p1, p2)}. ${
+        p1
+      } is now Player1, ${
         p2
-      )}. ${p1} is now Player1, ${p2} is now Player2. Please click <a href = "http://localhost:4000/instructions">Instructions for the Game</a>`
+      } is now Player2. Click <a href="http://localhost:4000/instructions"> For Instructions </a>`
     );
-  } else if (p1 === undefined && p2 === undefined) {
+  } else if (
+    p1 === undefined &&
+    p2 === undefined
+  ) {
     res.send(`No inputs provided. Please send player names!`);
-  } else if (p1 === undefined || p2 === undefined) {
+  } else if (
+    p1 === undefined ||
+    p2 === undefined
+  ) {
     res.send(
       `Only one player input provided. Please resubmit your post request with both player names`
     );
   }
-});
-
-app.get("/instructions", (req, res) => {
-  res.send(
-    `Click <a href="http://localhost:4000/playgame">here</a> to continue playing this game.`
-  );
 });
 
 app.get("/playgame", (req, res) => {
@@ -65,7 +68,7 @@ app.get("/playgame", (req, res) => {
 
 app.get("/scores", (req, res) => {
   res.send(
-    `Here are scores. ${p1} : ${player.player1.score} and ${p2} : ${player.player2.score}. To <a href = "http://localhost:4000/restart"> Restart </a> or to <a href = "http://localhost:4000/playgame"> Play Again</a>`
+    `Here are scores. ${p1} : ${player.player1.score} and ${p2} : ${player.player2.score}. To <a href = "http://localhost:4000/restart"> Reset </a> or to <a href = "http://localhost:4000/playgame"> Play Again</a>`
   );
 });
 

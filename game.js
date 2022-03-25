@@ -11,7 +11,7 @@ const player = {
 };
 
 function displayName(player1, player2) {
-  return `Welcome to Tenzi game ${player1} and ${player2}`;
+  return `<h1>Welcome to Tenzi game ${player1} and ${player2}</h1>`;
 }
 
 function welcome(req, res) {
