@@ -10,20 +10,15 @@ const player = {
   },
 };
 
+function welcome(req, res) {
+  res.send(
+    `<h1>Welcome to Tenzi Game !!!</h1> <h3>Please enter your name using this command:  "http://localhost:4000/inputnames?player1={yourName}&player2={yourName}"</h3>`
+  );
+}
 function displayName(player1, player2) {
   return `<h1>Welcome to Tenzi game ${player1} and ${player2}</h1>`;
 }
 
-function welcome(req, res) {
-  res.send(
-    `Welcome to Tenzi Game. Please enter your name using this command:  "http://localhost:4000/inputnames?player1={yourName}&player2={yourname}"`
-  );
-}
-
-// function welcome
-// (req, res) {
-//   res.sendFile(__dirname + '/index.html');
-// }
 
 function rollSetOfDice(times) {
   let diceArray = [];
