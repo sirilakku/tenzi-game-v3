@@ -39,7 +39,8 @@ app.get("/inputnames", (req, res) => {
     );
   } else {
     res.send(
-      `<h1 text-align:center><p text-align: center>No players found. Please pass player names using</h1><br> <h2>"http://localhost:4000/inputnames?player1={yourName}&player2={yourName}"</h2>`
+      `<h1 text-align:center><p text-align: center>No players found.
+       Please pass player names using</h1><br> <h2>"http://localhost:4000/inputnames?player1={yourName}&player2={yourName}"</h2>`
     );
   }
 });
