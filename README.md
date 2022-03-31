@@ -1,4 +1,4 @@
-# tenzi-game-1
+# tenzi-game-v3
 
 This program is Tenzi Game for two players. The backend is written in JavaScript and uses express to handle web requests.
 When the game starts it takes two inputs (player names).
